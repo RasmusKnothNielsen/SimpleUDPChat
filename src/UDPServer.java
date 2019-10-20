@@ -72,7 +72,7 @@ public class UDPServer
                 boolean clientAlreadyLoggedIn = false;
                 for (Client client : existingClients)
                 {
-                    if (client.getIpAdress().equals(receivePacket.getAddress()) &&
+                    if (client.getIpAddress().equals(receivePacket.getAddress()) &&
                     client.getPort() == receivePacket.getPort())
                     {
                         clientAlreadyLoggedIn = true;
@@ -108,7 +108,7 @@ public class UDPServer
                 {
                     Client newClient = new Client(receivePacket.getAddress(), receivePacket.getPort());
                     System.out.println("[-] User tried to JOIN on occupied username: " + userName + ", Client IP: " +
-                            newClient.getIpAdress() + ", Client port: " + newClient.getPort());
+                            newClient.getIpAddress() + ", Client port: " + newClient.getPort());
                     sendToOneUser(newClient, "JOIN ERROR username occupied", udpServerSocket);
                     continue;
                 }
@@ -121,7 +121,7 @@ public class UDPServer
                 Client client = new Client();
                 for (int i= 0; i < existingClients.size(); i++)
                 {
-                    if (existingClients.get(i).getIpAdress().equals(receivePacket.getAddress()) &&
+                    if (existingClients.get(i).getIpAddress().equals(receivePacket.getAddress()) &&
                             existingClients.get(i).getPort() == receivePacket.getPort())
                     {
                         client = existingClients.get(i);
@@ -137,7 +137,7 @@ public class UDPServer
                 int indexOfClient = -1;
                 for (int i = 0; i < existingClients.size(); i++)
                 {
-                    if (existingClients.get(i).getIpAdress().equals(receivePacket.getAddress()) &&
+                    if (existingClients.get(i).getIpAddress().equals(receivePacket.getAddress()) &&
                             existingClients.get(i).getPort() == receivePacket.getPort())
                     {
                         indexOfClient = i;
@@ -194,7 +194,7 @@ public class UDPServer
             // Send the Message to all other clients connected.
             for (Client client : existingClients)
             {
-                DatagramPacket sendPacket = new DatagramPacket(sendData, message.length(), client.getIpAdress(), client.getPort());
+                DatagramPacket sendPacket = new DatagramPacket(sendData, message.length(), client.getIpAddress(), client.getPort());
                 System.out.println("Sending message to " + client);
                 udpServerSocket.send(sendPacket);
             }
@@ -213,7 +213,7 @@ public class UDPServer
 
         try
         {
-            DatagramPacket sendPacket = new DatagramPacket(sendData, message.length(), client.getIpAdress(), client.getPort());
+            DatagramPacket sendPacket = new DatagramPacket(sendData, message.length(), client.getIpAddress(), client.getPort());
             System.out.println("Sending message to " + client);
             udpServerSocket.send(sendPacket);
         }
@@ -228,7 +228,7 @@ public class UDPServer
         String username = null;
         for (Client client : existingClients)
         {
-            if (receivedPacket.getAddress().equals(client.getIpAdress()) &&
+            if (receivedPacket.getAddress().equals(client.getIpAddress()) &&
                     receivedPacket.getPort() == client.getPort())
             {
                 username = client.getUsername();

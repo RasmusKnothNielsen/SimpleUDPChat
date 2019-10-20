@@ -13,34 +13,34 @@ public class Client
 {
 
     //Fields
-    private InetAddress ipAdress;
+    private InetAddress ipAddress;
     private int port;
     private String username;
 
-    public Client(InetAddress ipAdress, int port, String username)
+    public Client(InetAddress ipAddress, int port, String username)
     {
-        this.ipAdress = ipAdress;
+        this.ipAddress = ipAddress;
         this.port = port;
         this.username = username;
     }
 
-    public Client(InetAddress ipAdress, int port)
+    public Client(InetAddress ipAddress, int port)
     {
-        this.ipAdress = ipAdress;
+        this.ipAddress = ipAddress;
         this.port = port;
         this.username = null;
     }
 
     public Client(){}
 
-    public InetAddress getIpAdress()
+    public InetAddress getIpAddress()
     {
-        return ipAdress;
+        return ipAddress;
     }
 
-    public void setIpAdress(InetAddress ipAdress)
+    public void setIpAddress(InetAddress ipAddress)
     {
-        this.ipAdress = ipAdress;
+        this.ipAddress = ipAddress;
     }
 
     public int getPort()
@@ -65,6 +65,6 @@ public class Client
 
     public String toString()
     {
-        return "[IP: " + ipAdress + ", Port: " + port + ", Username: " + username + "]";
+        return "[IP: " + ipAddress + ", Port: " + port + ", Username: " + username + "]";
     }
 }
