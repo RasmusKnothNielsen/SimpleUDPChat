@@ -120,6 +120,12 @@ public class ThreadHandler {
                         username = String.format("%-20s", username);
                         System.out.println("From user: " + username + "Message: " + message);
                     }
+                    else if (serverReply.startsWith("NEW CLIENT"))
+                    {
+                        // Get the username of the new client
+                        String username = serverReply.substring(11);
+                        System.out.println(username + " just joined the chat!");
+                    }
                     else
                     {
                         System.out.println(serverReply);
