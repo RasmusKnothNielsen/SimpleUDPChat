@@ -9,7 +9,8 @@ Read Network_Assignment2.pdf for more information
 
 import java.net.InetAddress;
 
-public class Client {
+public class Client
+{
 
     //Fields
     private InetAddress ipAdress;
@@ -23,7 +24,8 @@ public class Client {
         this.username = username;
     }
 
-    public Client(InetAddress ipAdress, int port) {
+    public Client(InetAddress ipAdress, int port)
+    {
         this.ipAdress = ipAdress;
         this.port = port;
         this.username = null;
@@ -31,27 +33,33 @@ public class Client {
 
     public Client(){}
 
-    public InetAddress getIpAdress() {
+    public InetAddress getIpAdress()
+    {
         return ipAdress;
     }
 
-    public void setIpAdress(InetAddress ipAdress) {
+    public void setIpAdress(InetAddress ipAdress)
+    {
         this.ipAdress = ipAdress;
     }
 
-    public int getPort() {
+    public int getPort()
+    {
         return port;
     }
 
-    public void setPort(int port) {
+    public void setPort(int port)
+    {
         this.port = port;
     }
 
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String username)
+    {
         this.username = username;
     }
 
